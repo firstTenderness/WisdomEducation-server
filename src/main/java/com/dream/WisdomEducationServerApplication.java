@@ -1,4 +1,4 @@
-package com.dream.wisdomeducationserver;
+package com.dream;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

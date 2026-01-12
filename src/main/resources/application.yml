@@ -1,0 +1,37 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+  application:
+    name: WisdomEducation-server
+  datasource:
+    url: jdbc:mysql://localhost:3306/wisdomeducation
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: Chj2006117
+
+
+#  mybatis:
+#    configgation:
+#      map-underscore-to-camel-case: true
+#      #驼峰命名
+#    configuration:
+#        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#      #显示sql
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #驼峰命名
+    map-underscore-to-camel-case: true
+  #配置事务管理日志级别
+  logging:
+    level:
+      org.springframework.jdbc.support.JdbcTransactionManager: debug
+#阿里云
+aliyun:
+  oss:
+    endpoint: https://oss-cn-beijing.aliyuncs.com
+    bucketName: java-ai-dream
+    region: cn-beijing
+
