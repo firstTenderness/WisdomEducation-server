@@ -4,7 +4,5 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dream.mapper.TeacherMapper">
 
-    <select id="list" resultType="com.dream.pojo.TeacherEntity">
-select * from wisdomeducation.class
-    </select>
+
 </mapper>

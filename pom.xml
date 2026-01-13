@@ -57,6 +57,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+            <version>1.18.24</version>
         </dependency>
 
         <!-- Spring Boot测试依赖（仅测试环境生效） -->
@@ -71,12 +72,18 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!--分页插件PageHelper-->
-        <dependency>
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-boot-starter</artifactId>
+    <version>${mybatis-plus.version}</version>
+    <exclusions>
+        <exclusion>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.4.7</version>
-        </dependency>
+        </exclusion>
+    </exclusions>
+</dependency>
+
     </dependencies>
 
     <build>
