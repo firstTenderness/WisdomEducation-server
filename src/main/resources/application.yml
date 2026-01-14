@@ -35,3 +35,9 @@ aliyun:
     bucketName: java-ai-dream
     region: cn-beijing
 
+
+# PageHelper配置
+pagehelper:
+  helper-dialect: mysql # 指定数据库类型（mysql/oracle/sqlserver）
+  reasonable: true # 页码越界自动处理（比如页码<1时查第1页，>总页数时查最后一页）
+  support-methods-arguments: true # 支持通过参数自动分页

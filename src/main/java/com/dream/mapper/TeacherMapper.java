@@ -1,14 +1,16 @@
 package com.dream.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.dream.pojo.TeacherEntity;
+import com.dream.pojo.EmpQueryParam;
+import com.dream.pojo.Teacher;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Mapper
-public interface TeacherMapper extends BaseMapper<TeacherEntity> {
+public interface TeacherMapper {
 
 
+    List<Teacher> list(EmpQueryParam empQueryParam);
 
 }
