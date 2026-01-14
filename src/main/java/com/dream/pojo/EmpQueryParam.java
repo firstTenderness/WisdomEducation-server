@@ -22,5 +22,6 @@ public class EmpQueryParam {
     private LocalDate end;
     private String degree;
     private String clazzName;
+    private String roleType;
 
 }
