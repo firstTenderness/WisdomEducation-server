@@ -25,8 +25,6 @@ public class EmpQueryParam {
     private String roleType;
     private String nameKeyword;
     private String classKeyword;
-    private String className;
-    private String grade;
-    private Long headTeacherid;
+
 
 }
