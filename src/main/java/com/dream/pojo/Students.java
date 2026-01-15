@@ -5,14 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-
-/**
- * 教师实体类
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Teacher {
+public class Students {
     // 主键id
     private Integer id;
     // 姓名
@@ -31,12 +27,13 @@ public class Teacher {
     private String password;
     // 盐值
     private String salt;
-    // 角色类型（2代表教师）
+    // 角色类型（1代表学生）
     private Integer roleType;
-    // 岗位（如语文老师/六年级1班）
+    // 岗位 学习委员
     private String position;
     // 创建时间
     private LocalDateTime createTime;
     // 更新时间
     private LocalDateTime updateTime;
+
 }

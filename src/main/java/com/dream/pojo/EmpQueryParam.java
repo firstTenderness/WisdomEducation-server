@@ -23,5 +23,10 @@ public class EmpQueryParam {
     private String degree;
     private String clazzName;
     private String roleType;
+    private String nameKeyword;
+    private String classKeyword;
+    private String className;
+    private String grade;
+    private Long headTeacherid;
 
 }

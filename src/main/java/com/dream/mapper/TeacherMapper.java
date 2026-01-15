@@ -13,4 +13,12 @@ public interface TeacherMapper {
 
     List<Teacher> list(EmpQueryParam empQueryParam);
 
+    void delete(Integer[] ids);
+
+    void update(Teacher teacher);
+
+    Teacher get(Integer id);
+
+    void add(Teacher teacher);
+
 }

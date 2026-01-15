@@ -11,6 +11,7 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -26,4 +27,26 @@ public class TeacherServiceimpl implements TeacherService {
         Page<Teacher> p= (Page<Teacher>) list;
         return new PageResult<>(p.getTotal(), p.getResult(), empQueryParam.getPage(), empQueryParam.getPageSize());
     }
+
+    @Override
+    public void delete(Integer[] ids) {
+        teacherMapper.delete(ids);
+    }
+    @Override
+    public void update(Teacher teacher) {
+        teacher.setUpdateTime(LocalDateTime.now());
+        teacherMapper.update(teacher);
+    }
+
+    @Override
+    public Teacher get(Integer id) {
+        return teacherMapper.get(id);
+    }
+    @Override
+    public void add(Teacher teacher) {
+        teacher.setUpdateTime(LocalDateTime.now());
+        teacher.setCreateTime(LocalDateTime.now());
+        teacherMapper.add(teacher);
+    }
+
 }

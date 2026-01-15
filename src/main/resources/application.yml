@@ -12,13 +12,13 @@ spring:
     password: Chj2006117
 
 
-#  mybatis:
-#    configgation:
-#      map-underscore-to-camel-case: true
-#      #驼峰命名
-#    configuration:
-#        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-#      #显示sql
+  mybatis:
+    configgation:
+      map-underscore-to-camel-case: true
+      #驼峰命名
+    configuration:
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+      #显示sql
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
