@@ -7,6 +7,7 @@ import com.dream.pojo.Students;
 import com.dream.service.StudentService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -22,5 +23,10 @@ public class StudentServiceimpl implements StudentService {
         List<Students> list = studentsMapper.list(empQueryParam);
         Page<Students> p= (Page<Students>) list;
         return new PageResult<>(p.getTotal(), p.getResult(), empQueryParam.getPage(), empQueryParam.getPageSize());
+    }
+
+    @Override
+    public void delete(Integer[] ids) {
+        studentsMapper.delete(ids);
     }
 }

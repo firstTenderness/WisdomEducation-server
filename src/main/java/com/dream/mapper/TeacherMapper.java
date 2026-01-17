@@ -20,5 +20,5 @@ public interface TeacherMapper {
     Teacher get(Integer id);
 
     void add(Teacher teacher);
-
+    Teacher getByAccount(String account);
 }

@@ -6,4 +6,6 @@ import com.dream.pojo.Students;
 
 public interface StudentService {
     PageResult<Students> list(EmpQueryParam empQueryParam);
+
+    void delete(Integer[] ids);
 }

@@ -8,4 +8,6 @@ import java.util.List;
 public interface StudentsMapper {
 
     List<Students> list(EmpQueryParam empQueryParam);
+
+    void delete(Integer[] ids);
 }

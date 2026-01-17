@@ -1,43 +1,43 @@
+# Spring核心配置
 spring:
   servlet:
     multipart:
-      max-file-size: 10MB
-      max-request-size: 100MB
+      max-file-size: 10MB        # 单个文件最大大小
+      max-request-size: 100MB    # 单次请求最大大小
   application:
-    name: WisdomEducation-server
+    name: WisdomEducation-server # 应用名称
   datasource:
-    url: jdbc:mysql://localhost:3306/wisdomeducation
-    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/wisdomeducation?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver  # 修正：MySQL8.0+需用cj驱动，旧驱动已废弃
     username: root
     password: Chj2006117
 
-
-  mybatis:
-    configgation:
-      map-underscore-to-camel-case: true
-      #驼峰命名
-    configuration:
-        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-      #显示sql
+# MyBatis核心配置（关键：层级正确、无重复、无拼写错误）
 mybatis:
   configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    #驼峰命名
-    map-underscore-to-camel-case: true
-  #配置事务管理日志级别
-  logging:
-    level:
-      org.springframework.jdbc.support.JdbcTransactionManager: debug
-#阿里云
+    map-underscore-to-camel-case: true  # 开启下划线转驼峰（拼写正确+层级正确）
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 打印SQL日志
+  mapper-locations: classpath:mapper/*.xml  # 补充：指定Mapper XML文件路径（必加，否则Mapper可能加载失败）
+
+# 日志配置（关键：层级在根节点，不是mybatis子节点）
+logging:
+  level:
+    # MyBatis Mapper日志级别（打印SQL参数和结果）
+    com.dream.mapper: DEBUG
+    # 事务管理日志（可选）
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
+    # 控制台日志格式（可选，优化日志可读性）
+    root: INFO
+
+# 阿里云OSS配置
 aliyun:
   oss:
     endpoint: https://oss-cn-beijing.aliyuncs.com
     bucketName: java-ai-dream
     region: cn-beijing
 
-
-# PageHelper配置
+# PageHelper分页插件配置
 pagehelper:
-  helper-dialect: mysql # 指定数据库类型（mysql/oracle/sqlserver）
-  reasonable: true # 页码越界自动处理（比如页码<1时查第1页，>总页数时查最后一页）
-  support-methods-arguments: true # 支持通过参数自动分页
+  helper-dialect: mysql        # 指定数据库类型
+  reasonable: true             # 页码越界自动处理
+  support-methods-arguments: true # 支持参数自动分页

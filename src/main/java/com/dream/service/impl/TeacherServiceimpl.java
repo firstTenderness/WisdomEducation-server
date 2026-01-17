@@ -44,6 +44,16 @@ public class TeacherServiceimpl implements TeacherService {
     }
     @Override
     public void add(Teacher teacher) {
+        // 验证账户是否已存在
+        if (teacher.getAccount() != null) {
+            Teacher existingTeacher = teacherMapper.getByAccount(teacher.getAccount());
+            if (existingTeacher != null) {
+                throw new RuntimeException("账户已存在：" + teacher.getAccount());
+            }
+        }
+        if (teacher.getRoleType() == null) {
+            teacher.setRoleType(2); // 设置默认角色类型值，根据实际业务需求调整
+        }
         teacher.setUpdateTime(LocalDateTime.now());
         teacher.setCreateTime(LocalDateTime.now());
         teacherMapper.add(teacher);
