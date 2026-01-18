@@ -14,7 +14,7 @@
         `password`,
         `salt`,
         `roleType`,
-        `position`
+        `id_card`,
         ) VALUES (
         #{name},        <!-- 对应Student实体类的name属性 -->
         #{gender},      <!-- 对应gender属性（1男/2女） -->
