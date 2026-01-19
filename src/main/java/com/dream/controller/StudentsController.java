@@ -28,4 +28,22 @@ public class StudentsController {
         studentService.delete(ids);
         return Result.success();
     }
+    @PostMapping
+    public Result add(@RequestBody Students students) {
+        log.info("添加学生信息，参数：{}", students);
+        studentService.add(students);
+        return Result.success();
+    }
+    @GetMapping("/{id}")
+    public Result get(@PathVariable Integer id) {
+        log.info("查询学生信息，id：{}", id);
+        Students students = studentService.get(id);
+        return Result.success(students);
+    }
+    @PutMapping
+    public Result update(@RequestBody Students students) {
+        log.info("更新学生信息，参数：{}", students);
+        studentService.update(students);
+        return Result.success();
+    }
 }

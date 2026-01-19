@@ -32,7 +32,7 @@ public class Teacher {
     // 盐值
     private String salt;
     // 角色类型（2代表教师）
-    private Integer roleType;
+    private Integer role_type;
     // 岗位（如语文老师/六年级1班）
     private String position;
     // 创建时间

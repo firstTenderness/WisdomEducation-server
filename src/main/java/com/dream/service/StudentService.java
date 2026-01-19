@@ -8,4 +8,10 @@ public interface StudentService {
     PageResult<Students> list(EmpQueryParam empQueryParam);
 
     void delete(Integer[] ids);
+
+    void add(Students students);
+
+    Students get(Integer id);
+
+    void update(Students students);
 }

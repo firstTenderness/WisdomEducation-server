@@ -5,17 +5,19 @@
 <mapper namespace="com.dream.mapper.TeacherMapper">
     <insert id="add" >
         INSERT INTO `person` (
+        `id`,
         `name`,
         `gender`,
         `age`,
         `phone`,
-        `idCard`,
+        `id_card`,
         `account`,
         `password`,
         `salt`,
-        `roleType`,
-        `id_card`,
+        `role_type`,
+        `position`
         ) VALUES (
+        #{id},
         #{name},        <!-- 对应Student实体类的name属性 -->
         #{gender},      <!-- 对应gender属性（1男/2女） -->
         #{age},         <!-- 对应age属性 -->
@@ -26,13 +28,12 @@
         #{salt},        <!-- 对应salt属性 -->
         #{role_type},        <!-- role_type固定为1（学生） -->
         #{position}     <!-- 对应position属性（比如“普通学生”） -->
-        )
-    </insert>
+        )    </insert>
     <update id="update" parameterType="com.dream.pojo.Teacher">
         update person set name = #{name}, gender = #{gender}, age = #{age}
-                        , phone = #{phone}, idcard = #{idCard}, roletype = #{roleType},
+                        , phone = #{phone}, id_card = #{idCard}, role_type = #{roleType},
                           position = #{position} , update_time = #{updateTime} where id = #{id}
-        and roletype=2
+        and role_type=2
     </update>
     <delete id="delete" parameterType="com.dream.pojo.Teacher">
 delete from person where id in
@@ -42,19 +43,21 @@ delete from person where id in
                    and role_type = 2
 </delete>
     <select id="list" parameterType="com.dream.pojo.EmpQueryParam">
-        SELECT name, gender, age, phone, idCard, roletype, position FROM person WHERE roletype=2
+        SELECT id, name, gender, age, phone, id_card, role_type, position FROM person WHERE role_type=2
         <if test="name != null">
             AND name LIKE CONCAT('%', #{name}, '%')
         </if>
         <if test="gender != null">
             AND gender = #{gender}
         </if>
-order by create_time  desc
+order by create_time  asc
     </select>
     <select id="get" resultType="com.dream.pojo.Teacher">
-        SELECT name, gender, age, phone, idCard, roletype, position FROM person WHERE id = #{id}
-        and roletype=2
+        SELECT id,name, gender, age, phone, id_card, role_type, position FROM person WHERE id = #{id}
+        and role_type=2
     </select>
     <select id="getByAccount" resultType="com.dream.pojo.Teacher">
-            SELECT * FROM person WHERE account = #{account} LIMIT 1</select>
+            SELECT * FROM person WHERE account = #{account} LIMIT 1
+
+            </select>
 </mapper>

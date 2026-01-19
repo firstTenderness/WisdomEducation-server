@@ -51,8 +51,8 @@ public class TeacherServiceimpl implements TeacherService {
                 throw new RuntimeException("账户已存在：" + teacher.getAccount());
             }
         }
-        if (teacher.getRoleType() == null) {
-            teacher.setRoleType(2); // 设置默认角色类型值，根据实际业务需求调整
+        if (teacher.getRole_type() == null) {
+            teacher.setRole_type(2); // 设置默认角色类型值，根据实际业务需求调整
         }
         teacher.setUpdateTime(LocalDateTime.now());
         teacher.setCreateTime(LocalDateTime.now());

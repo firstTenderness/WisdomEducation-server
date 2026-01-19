@@ -10,4 +10,13 @@ public interface StudentsMapper {
     List<Students> list(EmpQueryParam empQueryParam);
 
     void delete(Integer[] ids);
+
+    Students getByAccount(String account);
+
+    void add(Students students);
+
+    Students get(Integer id);
+
+    void update(Students students);
+
 }
