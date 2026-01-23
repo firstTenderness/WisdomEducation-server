@@ -37,4 +37,12 @@ public class JwtUtils {
                 .getBody();
         return claims;
     }
+    // 从Token中解析用户ID
+    public static Long getUserIdFromToken(String token) {
+        Claims claims = Jwts.parser()
+                .setSigningKey(signKey)
+                .parseClaimsJws(token)
+                .getBody();
+        return Long.parseLong(claims.get("id").toString()); // 登录生成Token时要存id
+    }
 }

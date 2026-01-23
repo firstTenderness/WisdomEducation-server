@@ -22,10 +22,21 @@ public class PersonServiceimpl implements PersonService {
  if (personlogin!=null){
      HashMap<String, Object> claims = new HashMap<>();
      claims.put("id", personlogin.getId());
+     claims.put("account", personlogin.getAccount());
      claims.put("name", personlogin.getName());
+     claims.put("password", personlogin.getPassword());
+     claims.put("role_type", personlogin.getRoleType());
      String jwt = JwtUtils.generateJwt(claims);
-     return new LoginInfo(personlogin.getId(), personlogin.getAccount(), personlogin.getName(), jwt);
+
+     return new LoginInfo(personlogin.getId(),
+             personlogin.getAccount(),
+             personlogin.getName(),
+             personlogin.getRoleType(),jwt);
  }
  return null;
+    }
+    @Override
+    public Person getPersonById(Long id) {
+        return personMapper.getPersonById(id);
     }
 }
